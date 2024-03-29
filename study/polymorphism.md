@@ -185,3 +185,21 @@ public class CastingMain6 {
     }
 }
 ```
+
+## 다형성과 메서드 오버라이딩
+
+- 오버라이딩 된 메서드가 항상 우선권을 가진다. 결국 더 하위 자식의 메서드가 우선권을 가진다
+- 반면 변수는 오버라이딩이 우선권을 가지지 않는다
+
+```java
+public class OverridingMain {
+    public static void main(String[] args) {
+        // 부모 변수가 자식 인스턴스 참조
+        Parent poly = new Child();
+        System.out.println("Parent -> Child");
+        System.out.println("value = " + poly.value);    // 변수는 오버라이딩 X
+        poly.method();  // 메서드는 오버라이딩 O
+    }
+}
+```
+
