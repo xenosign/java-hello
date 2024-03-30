@@ -129,3 +129,121 @@ public abstract void sound();
 ```
 
 - 따라서 추성 클래스와 추상 메서드를 사용하면 이전의 다형성에서 발생할 수 있는 문제점을 해결 가능하다
+
+## 추상 클래스 2
+
+- 순수 추상 클래스 : 모든 메서드가 추상 메서드인 추상 클래스
+
+### 순수 추상 클래스의 특징
+
+- 인스턴스 생성 불가능
+- 상속 시 자식은 반드시 메서드 오버라이드 필요
+- 다형성을 위해서 사용
+- 일종의 구현을 위한 규격으로 사용이 되며, 이는 일반적인 인터페이스와 같이 작동한다. 그래서 자바는 인터페이스라는 개념을 제공한다
+
+## 인터페이스
+
+- 인터페이스는 순수 추상 클래스의 모든 특징을 가지며, 약간의 편의 기능이 추가
+- 인터페이스의 모든 메서드는 public abstract 가 무조건 들어가므로 생략이 가능하다
+- 인터페이스는 다중 구현(다중 상속)을 지원
+- 인터페이스는 상속이라고 하는게 아니라 구현이라고 표현한다. 어짜피 다 직접 구현해야 하기 때문
+    - 따라서 상속 extends 대신 implements 라는 키워드 사용
+    - UML 에서는 상속은 실선이지만 인터페이스는 점선을 사용한다
+
+```java
+public interface InterfaceAnimal {
+    public abstract void sound();
+
+    void move();    // 생략 가능
+}
+```
+
+### 인터페이스의 멤버 변수
+
+- 인터페이스이 멤버 변수는 상수로 사용 해야만 하므로 public static final 이 기본으로 들어간다
+- 대문자에 _ 로 구분
+
+```java
+public interface InterfaceAnimal {
+    public static final double MY_PI = 3.14;
+    double MY_PI2 = 3.14;
+}
+```
+
+### 인터페이스를 사용해야 하는 이유
+
+- 제약 : 메서드를 반드시 구현해야 한다는 제약을 주기 위해
+    - 추상 클래스에는 개발자가 임의로 실행 가능한 메서드를 추가해도 문제가 발생하지 않음 -> 이렇게 되면 최초 구현 의도 실패
+    - 인터페이스를 쓰면 최초 제약을 어기는 것을 애초에 방지가 가능하다
+- 다중 구현 : 클래스 상속은 부모를 하나만 지정할 수 있지만, 인터페이스는 부모를 여려명 두는 다중 구현이 가능하기 때문
+- JAVA 8, 9 에서 각가 default 메서드, private 메서드가 등장하여 인터페이스에 메서드 구현이 가능하지만 나중에 배운다
+
+## 인터페이스 다중 구현
+
+### 자바가 다중 상속을 지원하지 않는 이유?
+
+- 다이아몬드 문제 : 어떤 부모에서 호출을 해야하는지 JAVA 가 판단이 불가능한 문제
+- 계층 구조가 매우 복잡해짐
+
+### 인터페이스가 다중 구현을 가능한 이유?
+
+- 어짜피 부모 인터페이스는 어짜피 기능이 없기 때문에 동일한 이름의 메서드를 가져와도 결국 구현한 자신의 메서드를 사용하기 때문에
+
+## 클래스와 인터페이스 활용
+
+- 기존 동물 예제에 Fly 라는 인터페이스를 추가하자, 나는 동물이면 Fly 인터페이스 구현이 가능
+
+- Fly 인터페이스를 만들고 날 수 있는 동물에 implements 추가
+
+```java
+public interface Fly {
+    void fly();
+}
+
+public class Duck extends AbstractAnimal implements Fly {
+    @Override
+    public void sound() {
+        System.out.println("꽥꽥");
+    }
+
+    @Override
+    public void move() {
+        System.out.println("오리는 뒤뚱뒤뚱");
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("오리 날다");
+    }
+}
+```
+
+- 선언을 해서 사용 + instanceof 를 사용해서 Fly 인터페이스를 구현한 인스턴스는 fly 메서드 사용
+
+```java
+public class AbstractAnimalMain {
+    public static void main(String[] args) {
+        AbstractAnimal[] animals = {new Dog(), new Cat(), new Caw(), new Duck(), new Chicken()};
+
+        for (AbstractAnimal animal : animals) {
+            soundAnimal(animal);
+            moveAnimal(animal);
+            if (animal instanceof Fly) flyAnimal((Fly) animal);
+            // 또는,
+            // if (animal instanceof Fly) ((Fly) animal).fly();
+        }
+    }
+
+    private static void soundAnimal(AbstractAnimal animal) {
+        animal.sound();
+    }
+
+    private static void moveAnimal(AbstractAnimal animal) {
+        animal.move();
+    }
+
+    private static void flyAnimal(Fly animal) {
+        animal.fly();
+    }
+}
+```
