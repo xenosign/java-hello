@@ -24,7 +24,6 @@ public class PayMain0 {
             scanner.nextLine();
 
             payService.processPay(option, amount);
-
         }
     }
 }

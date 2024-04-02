@@ -45,7 +45,7 @@
 public class ElectricCar extends Car {
     @Override
     // 이렇게 되면 에러 발생! 메서드 명이 다르므로 오버라이드가 안되는 케이스
-    public void moveeee() {
+    public void move() {
         System.out.println("전기차를 빠르게 이동합니다");
     }
 
