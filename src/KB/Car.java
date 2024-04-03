@@ -21,8 +21,8 @@ public class Car {
             }
 
             System.out.println("멈춥니다. (gas 잔량 : " + gas + ")");
-        } else {
-            System.out.println("Gas 를 주입하세요.");
         }
+
+        System.out.println("gas 를 주입하세요.");
     }
 }
