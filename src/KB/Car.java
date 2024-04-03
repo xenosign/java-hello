@@ -19,12 +19,10 @@ public class Car {
             while (isLeftGas()) {
                 System.out.println("달립니다. (gas 잔량 : " + gas-- + ")");
             }
-            
+
             System.out.println("멈춥니다. (gas 잔량 : " + gas + ")");
         } else {
             System.out.println("Gas 를 주입하세요.");
         }
-
-
     }
 }
