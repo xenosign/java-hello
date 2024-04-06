@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class SolutionMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String input = sc.next();
+//        String input = sc.next();\
+        String input = "adadaEQWEWQEQWdasdadaeqwewqEQEQEQW";
         String output = "";
 
         char tmp;
