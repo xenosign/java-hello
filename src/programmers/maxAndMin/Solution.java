@@ -13,6 +13,7 @@ public class Solution {
 
         String[] strArr = s.split(" ");
 
+        //  O(n)
         for (int i = 0; i < strArr.length; i++) {
             num = Integer.parseInt(strArr[i]);
             if (num < min) min = num;
@@ -30,8 +31,8 @@ public class Solution {
         int min, max;
 
         String[] strArr = s.split(" ");
-        int[] numArr = new int[strArr.length];
 
+        int[] numArr = new int[strArr.length];
         for (int i = 0; i < strArr.length; i++) {
             numArr[i] = Integer.parseInt(strArr[i]);
         }
