@@ -32,7 +32,6 @@ public class Merge {
         int j = mid + 1;
         int k = left;
 
-        // 두 부분을 비교하며 병합
         while (i <= mid && j <= right) {
             if (temp[i] <= temp[j]) {
                 arr[k] = temp[i];
@@ -44,7 +43,6 @@ public class Merge {
             k++;
         }
 
-        // 왼쪽 부분의 남은 요소들을 복사
         while (i <= mid) {
             arr[k] = temp[i];
             i++;
