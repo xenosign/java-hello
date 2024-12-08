@@ -1,4 +1,4 @@
-package programmers.sort.n2;
+package tomAndHarry.sort.n2;
 
 import java.util.Arrays;
 

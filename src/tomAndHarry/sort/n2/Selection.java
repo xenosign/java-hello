@@ -1,4 +1,4 @@
-package programmers.sort.n2;
+package tomAndHarry.sort.n2;
 
 import java.util.Arrays;
 
@@ -18,6 +18,8 @@ public class Selection {
                     minIndex = j;
                 }
             }
+
+            // 7! = 7 * 6 * 5 * 4 * 3 * 2 * 1
 
             // 제일 작은 값과 첫번째 배열의 값을 교환
             temp = arr[minIndex];

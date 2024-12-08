@@ -1,4 +1,4 @@
-package programmers.sort.nlogn;
+package tomAndHarry.sort.nlogn;
 
 import java.util.Arrays;
 
