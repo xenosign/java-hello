@@ -1,4 +1,4 @@
-package programmers.sort;
+package programmers.sort.nlogn;
 
 import java.util.Arrays;
 

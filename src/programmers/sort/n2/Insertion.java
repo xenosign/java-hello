@@ -1,12 +1,11 @@
-package programmers.sort;
+package programmers.sort.n2;
 
 import java.util.Arrays;
 
 public class Insertion {
     public int[] sort(int[] arr) {
-        int len = arr.length;
-
-        for (int i = 1; i < len; i++) {
+        // 배열에서 key 를 어디에 넣을 것인지 정하는 바깥 반복문
+        for (int i = 1; i < arr.length; i++) {
             int key = arr[i];  // 현재 삽입될 숫자를 key로 설정
             int j = i - 1;     // key의 앞 원소부터 비교 시작
 
