@@ -7,6 +7,9 @@ public class stringReverse {
             return str;
         }
 
+        // 인자로 전달되는 문자열 확인하기
+        System.out.println(str);
+
         // 첫 글자를 제외한 나머지를 뒤집고, 첫 글자를 끝에 붙임으로 뒤집기를 시작
         return solution(str.substring(1)) + str.charAt(0);
     }
