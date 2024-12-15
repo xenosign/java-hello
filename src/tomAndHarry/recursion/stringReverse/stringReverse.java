@@ -1,4 +1,4 @@
-package tomAndHarry.recursion;
+package tomAndHarry.recursion.stringReverse;
 
 public class stringReverse {
     public static String solution(String str) {
