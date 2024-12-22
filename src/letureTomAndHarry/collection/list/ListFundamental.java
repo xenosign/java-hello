@@ -10,7 +10,7 @@ public class ListFundamental {
         int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
         // 배열의 값을 List에 추가
-        List<Integer> numbers = new ArrayList<>();
+        List<Integer> numbers = new ArrayList<>();        
         for (int num : array) {
             numbers.add(num);
         }
