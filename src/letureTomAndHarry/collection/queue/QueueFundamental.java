@@ -17,7 +17,7 @@ public class QueueFundamental {
         System.out.println(queue);
 
         // 맨 앞 요소 확인 (peek)
-        System.out.println("제일 뒤에 저장 된 값 : " + queue.peek());  // 1
+        System.out.println("제일 처음 저장 된 값 : " + queue.peek());  // 1
 
         // 요소 제거 (dequeue)
         System.out.println("빠져 나온 값 : " + queue.remove());  // 1
