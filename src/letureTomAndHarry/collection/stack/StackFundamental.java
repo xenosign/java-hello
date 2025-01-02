@@ -14,7 +14,7 @@ public class StackFundamental {
         stack.push(3);
 
         // stack 확인
-        System.out.println(stack);
+        System.out.println(stack);  // [1, 2, 3]
 
         // 맨 위 요소 확인 (peek)
         System.out.println("제일 꼭대기의 값 : " + stack.peek());  // 3

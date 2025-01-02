@@ -11,6 +11,10 @@ public class StackExample1 {
             stack.push(s.charAt(i));
         }
 
+        for (int i = 0; i < s.length(); i++) {
+            reverseStr += stack.pop();
+        }
+
         while (!stack.isEmpty()) {
             reverseStr += stack.pop();
         }

@@ -6,31 +6,40 @@ public class StackExample2 {
     public static boolean solution(String s) {
         Stack<Character> stack = new Stack<>();
 
-        // 문자열의 각 문자에 대해 반복
-        for (char c : s.toCharArray()) {
-            if (c == '(') {
-                // 열린 괄호는 스택에 추가
-                stack.push(c);
-
-            } else if (c == ')') {
-                // 닫힌 괄호를 만났을 때 스택이 비어있으면 false 반환
+        // 1. 열린 괄호 ”(“ 를 만나면? 스택에 넣는다 (push)
+        // 2. 닫힌 괄호를 ”)” 만나면? 스택에 있는 애를 뽑는다 (pop)
+        // 3. 문자열이 끝났어요
+        //    스택이 비었으면? -> 완벽한 괄호 -> True
+        //    스택이 안비었으면? -> False
+        // 4. 문자열이 안끝났어요
+        //    스택이 비었으면? -> False
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') {
+                stack.push(s.charAt(i));
+            } else if (s.charAt(i) == ')') {
                 if (stack.isEmpty()) {
                     return false;
                 }
-                // 스택에서 열린 괄호를 하나 제거
                 stack.pop();
             }
         }
 
-        // 반복이 끝난 후 스택이 비어 있으면 true, 아니면 false 반환
-        return stack.isEmpty();
+
+        boolean isPerfect = stack.isEmpty();
+
+        return isPerfect;
     }
 
     public static void main(String[] args) {
-        String tc1 = "(())()";
-        String tc2 = "(())(()";
+        String tc1 = "()()"; // true
+        String tc2 = "()()("; // false
+        String tc3 = "())"; // false
+        String tc4 = "((((((()))()()))))()()())(())))"; // false
 
         System.out.println(solution(tc1));
         System.out.println(solution(tc2));
+        System.out.println(solution(tc3));
+        System.out.println(solution(tc4));
     }
 }
+

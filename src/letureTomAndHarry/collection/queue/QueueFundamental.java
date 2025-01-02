@@ -9,9 +9,9 @@ public class QueueFundamental {
         Queue<Integer> queue = new LinkedList<>();
 
         // 요소 추가 (enqueue)
-        queue.add(1);
-        queue.add(2);
-        queue.add(3);
+        queue.add(1);  // [1]
+        queue.add(2);  // [2, 1]
+        queue.add(3);  // [3, 2, 1]
 
         // queue 확인
         System.out.println(queue);
@@ -22,6 +22,8 @@ public class QueueFundamental {
         // 요소 제거 (dequeue)
         System.out.println("빠져 나온 값 : " + queue.remove());  // 1
 
+        System.out.println(queue);
+
         // 큐가 비어있는지 확인
         System.out.println("큐가 비었는가? " + queue.isEmpty());  // false
 
@@ -30,5 +32,10 @@ public class QueueFundamental {
 
         // 특정 요소 포함 여부 확인
         System.out.println("큐에 2 가 들어있는가? " + queue.contains(2));  // true
+
+        System.out.println("빠져 나온 값 : " + queue.remove()); // 2
+        System.out.println("빠져 나온 값 : " + queue.remove()); // 3
+
+        System.out.println("큐가 비었는가? " + queue.isEmpty());  // true
     }
 }
