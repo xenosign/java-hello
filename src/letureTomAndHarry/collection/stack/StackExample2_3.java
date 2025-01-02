@@ -2,7 +2,7 @@ package letureTomAndHarry.collection.stack;
 
 import java.util.ArrayDeque;
 
-public class StackExample3 {
+public class StackExample2_3 {
     public static boolean solution(String s) {
         // 실무에서는 불필요한 오버헤드가 없는 ArrayDeque 사용
         ArrayDeque<Character> stack = new ArrayDeque<>();
