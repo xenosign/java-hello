@@ -1,4 +1,4 @@
-package tomAndHarry.collection;
+package tomAndHarry.collection.set;
 
 import java.util.HashMap;
 import java.util.HashSet;
