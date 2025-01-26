@@ -3,7 +3,7 @@ package letureTomAndHarry.collection.map;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MapExample1 {
+public class MapQuiz1 {
     public static void main(String[] args) {
         Map<String, Integer> homework = new HashMap<>();
 
@@ -13,12 +13,12 @@ public class MapExample1 {
         homework.put("규찬", 85);
         System.out.println("homework map: " + homework);
 
-        String studentToFind = "시완";
-        int score = getScoreWithName(homework, studentToFind);
-        System.out.println(studentToFind + " 님의 점수는 : " + score);
+        String topStudent = getTopStudent(homework);
+        System.out.println("최고 점수를 가진 사람: " + topStudent);
     }
 
-    static public Integer getScoreWithName(Map<String, Integer> studentList, String name) {
-        return studentList.get(name);
+    static public String getTopStudent(Map<String, Integer> studentList) {
+        // 여기를 완성해 주세요
+        return "";
     }
 }
