@@ -42,8 +42,6 @@ public class Assignment03 {
     }
 
     public static void solution(LinkedList<Student> students) {
-        LinkedList<Student> result = new LinkedList<>();
-
         for (Student student : students) {
             if (student.getMajor().equals("전기전자")) {
                 System.out.println(student);

@@ -13,7 +13,7 @@ public class MapExample1 {
         homework.put("규찬", 85);
         System.out.println("homework map: " + homework);
 
-        String studentToFind = "시완";
+        String studentToFind = "연비";
         int score = getScoreWithName(homework, studentToFind);
         System.out.println(studentToFind + " 님의 점수는 : " + score);
     }

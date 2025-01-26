@@ -6,7 +6,7 @@ import java.util.List;
 public class ListAssignment {
     public static int solution(String str) {
         List<Character> list = new LinkedList<>();
-
+        // char c  : ['a', 'b', 'c']
         for (char c : str.toCharArray()) {
             if (!list.contains(c) && c != ' ') {
                 list.add(c);

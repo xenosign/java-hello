@@ -4,7 +4,6 @@ import java.util.*;
 
 public class MapFundamental {
     public static void main(String[] args) {
-        // Map 생성 (이름과 점수를 저장)
         Map<String, Integer> homework = new HashMap<>();
 
         // 요소 추가 (put)
@@ -24,7 +23,10 @@ public class MapFundamental {
 
         // 값 가져오기
         System.out.println("시완의 점수: " + homework.get("시완"));
+        System.out.println("태웅의 점수: " + homework.get("태웅"));
+        System.out.println("시완의 점수: " + homework.getOrDefault("시완", 0));
         System.out.println("태웅의 점수: " + homework.getOrDefault("태웅", 0)); // 기본값 지정
+
 
         // 요소 제거
         homework.remove("규찬");
@@ -32,6 +34,7 @@ public class MapFundamental {
 
         // 모든 학생과 점수 출력
         System.out.println("\n모든 학생의 점수:");
+
         for (Map.Entry<String, Integer> entry : homework.entrySet()) {
             System.out.println(entry.getKey() + ": " + entry.getValue() + "점");
         }

@@ -18,7 +18,16 @@ public class MapQuiz1 {
     }
 
     static public String getTopStudent(Map<String, Integer> studentList) {
-        // 여기를 완성해 주세요
-        return "";
+        String topStudent = "";
+        int maxScore = Integer.MIN_VALUE; // -21 억
+
+        for (Map.Entry<String, Integer> entry : studentList.entrySet()) {
+            if (entry.getValue() > maxScore) {
+                maxScore = entry.getValue();
+                topStudent = entry.getKey();
+            }
+        }
+
+        return topStudent;
     }
 }
