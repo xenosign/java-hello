@@ -13,13 +13,11 @@ public class MapAssignment1 {
 
 
     public static String solution(String[] strings) {
-        // HashMap을 사용하여 각 문자열의 빈도수 카운트
         Map<String, Integer> frequencyMap = new HashMap<>();
         for (String str : strings) {
             frequencyMap.put(str, frequencyMap.getOrDefault(str, 0) + 1);
         }
-
-        // 가장 높은 빈도수를 가진 문자열 찾기
+        
         String mostFrequent = null;
         int maxFrequency = 0;
 
