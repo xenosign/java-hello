@@ -10,9 +10,11 @@ public class StackQuiz {
         String tc1 = "level";
         String tc2 = "우영우";
         String tc3 = "역삼역";
+        String tc4 = "역삼역";
 
         System.out.println(solution(tc1));
         System.out.println(solution(tc2));
         System.out.println(solution(tc3));
+        System.out.println(solution(tc4));
     }
 }
