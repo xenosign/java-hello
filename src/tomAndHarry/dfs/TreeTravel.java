@@ -2,22 +2,7 @@ package tomAndHarry.dfs;
 
 import java.util.*;
 
-// 트리의 노드를 정의하는 클래스
-class Node {
-    int data;
-    List<Node> children;
-
-    public Node(int data) {
-        this.data = data;
-        this.children = new ArrayList<>();
-    }
-
-    public void addChild(Node child) {
-        children.add(child);
-    }
-}
-
-public class TreeTraver {
+public class TreeTravel {
     // DFS 구현 (재귀적 방법)
     public static void dfs(Node root) {
         if (root == null) return;
