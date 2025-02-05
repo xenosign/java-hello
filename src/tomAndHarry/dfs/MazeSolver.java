@@ -88,7 +88,7 @@ public class MazeSolver {
 
                 // 다음 위치가 유효한지 확인:
                 // 1. 미로 범위 내에 있는지 (nx >= 0 && nx < N && ny >= 0 && ny < N)
-                // 2. 아직 방문하지 않았는지 (!visited[nx][ny])
+                // 2. 아직 방문하지 않았는지 (visited[nx][ny] == false || !visited[nx][ny])
                 // 3. 이동 가능한 칸인지 (maze[nx][ny] == 1)
                 if (nx >= 0 && nx < N && ny >= 0 && ny < N
                         && visited[nx][ny] == false && maze[nx][ny] == 1) {
