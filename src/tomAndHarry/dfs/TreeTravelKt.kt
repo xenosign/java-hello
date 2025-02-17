@@ -12,10 +12,10 @@ object TreeTravelKt {
 
         while (!queue.isEmpty()) {
             val current = queue.poll()
-            // 현재 노드 방문
+            // Java 필드에 맞게 접근 방식 수정
             print(current.data.toString() + " ")
 
-            // 모든 자식 노드를 큐에 추가
+            // Java List를 Kotlin에서 사용
             for (child in current.children) {
                 queue.add(child)
             }
