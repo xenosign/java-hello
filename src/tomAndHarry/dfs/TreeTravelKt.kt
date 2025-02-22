@@ -4,10 +4,10 @@ import java.util.*
 
 object TreeTravelKt {
     // BFS 구현 (큐를 사용)
-    fun bfs(root: Node?) {
+    fun bfs(root: NodeKt?) {
         if (root == null) return
 
-        val queue: Queue<Node> = LinkedList()
+        val queue: Queue<NodeKt> = LinkedList()
         queue.add(root)
 
         while (!queue.isEmpty()) {
@@ -23,7 +23,7 @@ object TreeTravelKt {
     }
 
     // DFS 구현 (재귀적 방법)
-    fun dfs(root: Node?) {
+    fun dfs(root: NodeKt?) {
         if (root == null) return
 
         // 현재 노드 방문
@@ -38,33 +38,33 @@ object TreeTravelKt {
     @JvmStatic
     fun main(args: Array<String>) {
         // 트리 생성
-        val root = Node(1)
-        val node2 = Node(2)
-        val node3 = Node(3)
-        val node4 = Node(4)
-        val node5 = Node(5)
-        val node6 = Node(6)
-        val node7 = Node(7)
-        val node8 = Node(8)
-        val node9 = Node(9)
-        val node10 = Node(10)
-        val node11 = Node(11)
+        val root = NodeKt(1)
+        val nodeKt2 = NodeKt(2)
+        val nodeKt3 = NodeKt(3)
+        val nodeKt4 = NodeKt(4)
+        val nodeKt5 = NodeKt(5)
+        val nodeKt6 = NodeKt(6)
+        val nodeKt7 = NodeKt(7)
+        val nodeKt8 = NodeKt(8)
+        val nodeKt9 = NodeKt(9)
+        val nodeKt10 = NodeKt(10)
+        val nodeKt11 = NodeKt(11)
 
         // 트리 구조 구성
-        root.addChild(node2)
-        root.addChild(node3)
+        root.addChild(nodeKt2)
+        root.addChild(nodeKt3)
 
-        node2.addChild(node4)
-        node2.addChild(node5)
+        nodeKt2.addChild(nodeKt4)
+        nodeKt2.addChild(nodeKt5)
 
-        node3.addChild(node6)
-        node3.addChild(node7)
+        nodeKt3.addChild(nodeKt6)
+        nodeKt3.addChild(nodeKt7)
 
-        node4.addChild(node8)
-        node4.addChild(node9)
+        nodeKt4.addChild(nodeKt8)
+        nodeKt4.addChild(nodeKt9)
 
-        node5.addChild(node10)
-        node5.addChild(node11)
+        nodeKt5.addChild(nodeKt10)
+        nodeKt5.addChild(nodeKt11)
 
         /*
         생성된 트리 구조:
