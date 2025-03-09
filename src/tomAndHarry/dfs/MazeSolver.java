@@ -15,42 +15,23 @@ public class MazeSolver {
     static int[] dx = {-1, 0, 1, 0};
     static int[] dy = {0, 1, 0, -1};
 
+    // 경로의 수를 저장할 변수
+    static int pathCount = 0;
+
     public static void main(String[] args) {
+        System.out.println("\nBFS로 미로 찾기:");
+        String bfsResult = bfs(0, 0) ? "미로 탈출 성공" : "미로 탈출 실패";
+        System.out.println(bfsResult);
+
         System.out.println("DFS로 미로 찾기:");
         boolean[][] visited = new boolean[N][N];
         String dfsResult = dfs(0, 0, visited) ? "미로 탈출 성공" : "미로 탈출 실패";
         System.out.println(dfsResult);
 
-        System.out.println("\nBFS로 미로 찾기:");
-        String bfsResult = bfs(0, 0) ? "미로 탈출 성공" : "미로 탈출 실패";
-        System.out.println(bfsResult);
-    }
-
-    // DFS 구현
-    static boolean dfs(int x, int y, boolean[][] visited) {
-        // 목적지 도달
-        if (x == N - 1 && y == N - 1) {
-            System.out.println("도착!");
-            return true;
-        }
-
-        visited[x][y] = true;
-        System.out.println("현재 위치: (" + x + "," + y + ")");
-
-        // 네 방향 탐색
-        for (int i = 0; i < 4; i++) {
-            int nx = x + dx[i];
-            int ny = y + dy[i];
-
-            // 미로 범위 내이고, 방문하지 않았고, 이동 가능한 칸인 경우
-            if (nx >= 0 && nx < N && ny >= 0 && ny < N
-                    && visited[nx][ny] == false && maze[nx][ny] == 1) {
-                if (dfs(nx, ny, visited)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        System.out.println("\nDFS로 미로 탈출 경우의 수:");
+        boolean[][] visited2 = new boolean[N][N];
+        countPathsDFS(0, 0, visited2);
+        System.out.println("미로 탈출 경우의 수는 : " + pathCount);
     }
 
     // BFS 구현
@@ -99,5 +80,58 @@ public class MazeSolver {
         }
         // 모든 가능한 경로를 탐색했지만 도착점에 도달하지 못한 경우
         return false;
+    }
+
+    // DFS 구현
+    static boolean dfs(int x, int y, boolean[][] visited) {
+        // 목적지 도달
+        if (x == N - 1 && y == N - 1) {
+            System.out.println("도착!");
+            return true;
+        }
+
+        visited[x][y] = true;
+        System.out.println("현재 위치: (" + x + "," + y + ")");
+
+        // 네 방향 탐색
+        for (int i = 0; i < 4; i++) {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+
+            // 미로 범위 내이고, 방문하지 않았고, 이동 가능한 칸인 경우
+            if (nx >= 0 && nx < N && ny >= 0 && ny < N
+                    && visited[nx][ny] == false && maze[nx][ny] == 1) {
+                if (dfs(nx, ny, visited)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    // 미로 탈출 경로 수 찾기 (DFS)
+    static void countPathsDFS(int x, int y, boolean[][] visited) {
+        // 목적지 도달
+        if (x == N - 1 && y == N - 1) {
+            pathCount++; // 경로 하나 발견
+            return;
+        }
+
+        visited[x][y] = true;
+
+        // 네 방향 탐색
+        for (int i = 0; i < 4; i++) {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+
+            // 미로 범위 내이고, 방문하지 않았고, 이동 가능한 칸인 경우
+            if (nx >= 0 && nx < N && ny >= 0 && ny < N
+                    && !visited[nx][ny] && maze[nx][ny] == 1) {
+                countPathsDFS(nx, ny, visited);
+            }
+        }
+
+        // 백트래킹: 현재 경로에서 이 위치 방문 취소 (다른 경로에서 재사용 가능하도록)
+        visited[x][y] = false;
     }
 }
