@@ -82,7 +82,7 @@ public class MazeSolver {
         return false;
     }
 
-    // DFS 구현
+    // DFS 구현 dfs(0,0)
     static boolean dfs(int x, int y, boolean[][] visited) {
         // 목적지 도달
         if (x == N - 1 && y == N - 1) {
@@ -101,6 +101,7 @@ public class MazeSolver {
             // 미로 범위 내이고, 방문하지 않았고, 이동 가능한 칸인 경우
             if (nx >= 0 && nx < N && ny >= 0 && ny < N
                     && visited[nx][ny] == false && maze[nx][ny] == 1) {
+                // dfs(1,0)
                 if (dfs(nx, ny, visited)) {
                     return true;
                 }
